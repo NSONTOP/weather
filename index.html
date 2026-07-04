@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>METEORIC // Atmospheric Foresight Matrix</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="logo-zone">
+      <span class="system-status static-pulse"></span>
+      <h1>METEORIC // FORESIGHT</h1>
+    </div>
+    <div class="search-container">
+      <input type="text" id="location-input" placeholder="ENTER COORDINATES OR CITY NAME..." autocomplete="off">
+      <button id="search-btn">EXECUTE_SCAN</button>
+    </div>
+  </header>
+
+  <main class="dashboard-grid">
+    <section class="card current-analysis">
+      <div class="card-header">
+        <span class="panel-num">01/</span>
+        <h2>CURRENT METRIC ANALYSIS</h2>
+      </div>
+      <div class="metrics-block">
+        <div class="main-temp-display">
+          <span id="current-temp">--</span><span class="unit">°C</span>
+        </div>
+        <div class="data-sub-grid">
+          <div class="data-point"><span class="label">APPARENT TEMP:</span> <span id="apparent-temp" class="val">--</span>°C</div>
+          <div class="data-point"><span class="label">PRECIPITATION:</span> <span id="precipitation" class="val">--</span> mm</div>
+          <div class="data-point"><span class="label">RELATIVE HUMIDITY:</span> <span id="humidity" class="val">--</span>%</div>
+          <div class="data-point"><span class="label">WINDSPEED (10M):</span> <span id="windspeed" class="val">--</span> km/h</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card atmosphere-matrix">
+      <div class="card-header">
+        <span class="panel-num">02/</span>
+        <h2>ATMOSPHERIC COMPOSITION</h2>
+      </div>
+      <div class="gauge-container">
+        <div class="gauge-item">
+          <span class="label">CLOUD COVER</span>
+          <div class="bar-bg"><div id="cloud-bar" class="bar-fill" style="width: 0%"></div></div>
+          <span id="cloud-val" class="val">--%</span>
+        </div>
+        <div class="gauge-item">
+          <span class="label">UV RAD INDEX</span>
+          <div class="bar-bg"><div id="uv-bar" class="bar-fill warning" style="width: 0%"></div></div>
+          <span id="uv-val" class="val">0.0</span>
+        </div>
+        <div class="gauge-item">
+          <span class="label">SURFACE PRESSURE</span>
+          <span id="pressure-val" class="val bold-val">---- hPa</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card long-range-forecast">
+      <div class="card-header">
+        <span class="panel-num">03/</span>
+        <h2>7-DAY FORESIGHT HORIZON</h2>
+      </div>
+      <div class="table-wrapper">
+        <table class="forecast-table">
+          <thead>
+            <tr>
+              <th>TIMELINE</th>
+              <th>THERMAL RANGE</th>
+              <th>PRECIP %</th>
+              <th>UV PEAK</th>
+            </tr>
+          </thead>
+          <tbody id="forecast-body">
+            <tr><td colspan="4" class="loading-row">AWAITING TARGET COORDINATES...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="system-footer">
+    <span>SYS_STATUS: ACTIVE</span>
+    <span>DATA_SOURCE: OPEN-METEO // NO-KEY-LAYER</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
